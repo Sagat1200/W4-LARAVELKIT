@@ -51,7 +51,7 @@ class W4LaravelKitServiceProvider extends ServiceProvider
 
                 // 📌 Center Hero Component
                 __DIR__ . '/../Stubs/app/View/Components/W4LaravelKit/Design/CenterHeroComponent.php'
-                => app_path('View/Components/W4LaravelKit/Design/CenterheroComponent.php'),
+                => app_path('View/Components/W4LaravelKit/Design/CenterHeroComponent.php'),
 
                 // 📌 Center Hero Component Views
                 __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/design/centerhero-component.blade.php'
