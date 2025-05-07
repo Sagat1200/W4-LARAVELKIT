@@ -1,6 +1,6 @@
 <?php
 
-namespace W4laravelkit\Commands;
+namespace W4Laravelkit\Commands;
 
 use Illuminate\Console\Command;
 

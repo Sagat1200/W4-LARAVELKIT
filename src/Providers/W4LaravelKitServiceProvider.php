@@ -5,12 +5,13 @@ namespace W4LaravelKit\Providers;
 use Livewire\Livewire;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use W4laravelkit\Commands\W4LivewireModules;
-use W4laravelkit\Commands\InstallW4LaravelKit;
+use W4LaravelKit\Commands\W4LivewireModules;
+use W4Laravelkit\Commands\InstallW4LaravelKit;
 use App\Livewire\W4LaravelKit\UI\ToastComponent;
 use App\View\Components\W4LaravelKit\UI\LinkComponent;
 use App\Livewire\W4LaravelKit\UI\SessionFlashComponent;
 use App\View\Components\W4LaravelKit\UI\ButtonComponent;
+use App\View\Components\W4LaravelKit\UI\SelectComponent;
 use App\Livewire\W4LaravelKit\UI\CheckboxToggleComponent;
 use App\View\Components\W4LaravelKit\UI\InputDateComponent;
 use App\View\Components\W4LaravelKit\UI\InputFileComponent;
@@ -24,7 +25,6 @@ use App\View\Components\W4LaravelKit\UI\ThemeDropdownComponent;
 use App\View\Components\W4LaravelKit\Design\CenterHeroComponent;
 use App\View\Components\W4LaravelKit\UI\InputTextLowerComponent;
 use App\View\Components\W4LaravelKit\UI\InputTextReadOnlyComponent;
-use App\View\Components\W4LaravelKit\UI\SelectComponent;
 
 class W4LaravelKitServiceProvider extends ServiceProvider
 {
