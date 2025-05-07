@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "w4laravelkit\\": "src/"
+            "W4Laravelkit\\": "src/"
         }
     },
     "authors": [

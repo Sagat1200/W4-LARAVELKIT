@@ -86,7 +86,7 @@ class InstallW4LaravelKit extends Command
         // Modificar composer.json para agregar el post-update-cmd
         $this->updateComposerScripts();
 
-        $this->info('✅ W3BLaravelKit instalado correctamente.');
+        $this->info('✅ W4LaravelKit instalado correctamente.');
     }
 
     protected function updateAppLayout()
@@ -129,7 +129,7 @@ class InstallW4LaravelKit extends Command
 <body>
     {{ \$slot }}
     @livewireScripts
-    @livewire('w3btlaravelkit.ui.toast-component')
+    @livewire('w4laravelkit.ui.toast-component')
     @bukScripts
 </body>
 
@@ -810,12 +810,12 @@ JS;
             $composerJson['autoload']['psr-4'] = [];
         }
 
-        // Agregar el namespace "W3btech\\W3blaravelkit\\" si no existe
-        if (!isset($composerJson['autoload']['psr-4']['W3btech\\W3blaravelkit\\'])) {
-            $composerJson['autoload']['psr-4']['W3btech\\W3blaravelkit\\'] = "src/";
-            $this->info('✅ Se ha agregado "W3btech\\W3blaravelkit\\" en autoload PSR-4.');
+        // Agregar el namespace "W4\\Laravelkit\\" si no existe
+        if (!isset($composerJson['autoload']['psr-4']['w4\\Laravelkit\\'])) {
+            $composerJson['autoload']['psr-4']['W4\\Laravelkit\\'] = "src/";
+            $this->info('✅ Se ha agregado "W4\\Laravelkit\\" en autoload PSR-4.');
         } else {
-            $this->info('⚠️ "W3btech\\W3blaravelkit\\" ya está presente en autoload PSR-4.');
+            $this->info('⚠️ "W4\\Laravelkit\\" ya está presente en autoload PSR-4.');
         }
 
         // Escribir los cambios en el composer.json

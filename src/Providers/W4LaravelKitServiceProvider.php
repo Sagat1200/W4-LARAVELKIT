@@ -162,8 +162,11 @@ class W4LaravelKitServiceProvider extends ServiceProvider
                 => resource_path('views/components/w4laravelkit/ui/themedropdowncomponent.blade.php'),
 
 
+
                 //📌 Livewire Components
 
+
+                
                 // 📌 Livewire CheckboxToggle Component
                 __DIR__ . '/../Stubs/app/Livewire/W4LaravelKit/UI/CheckboxToggleComponent.php'
                 => app_path('Livewire/W4LaravelKit/UI/CheckboxToggleComponent.php'),
