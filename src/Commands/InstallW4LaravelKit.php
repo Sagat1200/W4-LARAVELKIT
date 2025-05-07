@@ -794,7 +794,7 @@ JS;
         // Agregar merge-plugin si no existe
         if (!isset($composerJson['extra']['merge-plugin'])) {
             $composerJson['extra']['merge-plugin'] = [
-                "include" => ["Modules/\*/composer.json"]
+                "include" => ["Modules/*/composer.json"]
             ];
             $this->info('✅ Se ha agregado merge-plugin en composer.json');
         } else {
