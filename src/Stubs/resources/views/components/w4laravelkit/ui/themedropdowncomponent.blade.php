@@ -1,4 +1,11 @@
-@props(['themes'])
+@props([
+    'themes' => [
+        'light', 'night', 'cupcake', 'bumblebee', 'dark', 'lofi', 'emerald', 'corporate', 'synthwave', 'retro', 'cyberpunk', 'valentine',
+        'halloween', 'garden', 'forest', 'aqua', 'pastel', 'fantasy', 'wireframe', 'black', 'luxury', 'dracula', 'cmyk', 'autumn',
+        'business', 'acid', 'lemonade', 'coffee', 'dim', 'nord', 'sunset', 'caramellatte', 'abyss', 'silk', 'winter',
+        'irongoblin', 'afkalmost', 'wigglycake', 'ironicflip', 'superschool', 'goatedburn', 'nextfox'
+    ]
+])
 
 @persist('theme-dropdown')
 <div x-data="{ open: false }" @click.away="open = false" class="relative">
@@ -9,7 +16,7 @@
 
     <!-- Menú desplegable -->
     <ul x-show="open" x-transition
-        class="grid absolute z-20 grid-cols-7 gap-2 p-2 mt-1 w-[28rem] max-h-[16rem] overflow-auto text-gray-500 shadow-lg dropdown-content menu bg-base-300 rounded-box"
+        class="grid grid-cols-7 gap-2 p-2 mt-1 w-[28rem] h-[24rem] overflow-y-auto text-gray-500 shadow-lg absolute z-20 bg-base-300 rounded-box"
         style="top: 100%;">
         @foreach ($themes as $theme)
             <li>
@@ -21,18 +28,6 @@
 </div>
 @endpersist
 
-{{-- @include('components.w4laravelkit.ui.themedropdowncomponent', [
-    'themes' => [
-        'light', 'night', 'cupcake', 'bumblebee', 'dark', 'lofi', 'emerald', 'corporate', 'synthwave', 'retro', 'cyberpunk', 'valentine',
-        'halloween', 'garden', 'forest', 'aqua', 'pastel', 'fantasy', 'wireframe', 'black', 'luxury', 'dracula', 'cmyk', 'autumn',
-        'business', 'acid', 'lemonade', 'coffee', 'dim', 'nord', 'sunset', 'caramellatte', 'abyss', 'silk', 'winter',
-        'irongoblin', 'afkalmost', 'wigglycake', 'ironicflip', 'superschool', 'goatedburn', 'nextfox'
-    ]
-]) --}}
+{{-- @include('components.w4laravelkit.ui.themedropdowncomponent') --}}
 
-{{-- <x-w4laravelkit.ui.themedropdowncomponent :themes="[
-    'light', 'night', 'cupcake', 'bumblebee', 'dark', 'lofi', 'emerald', 'corporate', 'synthwave', 'retro', 'cyberpunk', 'valentine',
-    'halloween', 'garden', 'forest', 'aqua', 'pastel', 'fantasy', 'wireframe', 'black', 'luxury', 'dracula', 'cmyk', 'autumn',
-    'business', 'acid', 'lemonade', 'coffee', 'dim', 'nord', 'sunset', 'caramellatte', 'abyss', 'silk', 'winter',
-    'irongoblin', 'afkalmost', 'wigglycake', 'ironicflip', 'superschool', 'goatedburn', 'nextfox'
-]" /> --}}
+{{-- <x-w4laravelkit.ui.themedropdowncomponent/> --}}

@@ -17,7 +17,21 @@ class W4LivewireModules extends Command
     public function handle()
     {
         $componentPath = str_replace('\\', '/', $this->argument('componentPath'));
-        $module = Str::upper($this->argument('module'));
+        $moduleInput = $this->argument('module');
+
+        // Detección case-insensitive del módulo
+        $modulesBase = base_path('Modules');
+        $actualModule = collect(File::directories($modulesBase))
+            ->map(fn ($path) => basename($path))
+            ->first(fn ($name) => strtolower($name) === strtolower($moduleInput));
+
+        if (!$actualModule) {
+            $this->error("❌ El módulo {$moduleInput} no existe en Modules/.");
+            return;
+        }
+
+        $moduleStudly = Str::studly($actualModule);
+        $basePath = "{$modulesBase}/{$actualModule}";
 
         $pathParts = explode('/', $componentPath);
         $className = Str::studly(array_pop($pathParts));
@@ -25,12 +39,6 @@ class W4LivewireModules extends Command
         $namespace = implode('\\', array_map([Str::class, 'studly'], $pathParts));
         $viewSubdir = implode('.', array_map('strtolower', $pathParts));
         $viewName = Str::kebab($className);
-        $basePath = base_path("Modules/{$module}");
-
-        if (!File::exists($basePath)) {
-            $this->error("❌ El módulo {$module} no existe.");
-            return;
-        }
 
         $classPath = "$basePath/app/Livewire" . ($subdir ? "/{$subdir}" : '') . "/{$className}.php";
         $bladePath = "$basePath/resources/views/livewire" . ($subdir ? "/" . strtolower($subdir) : '') . "/{$viewName}.blade.php";
@@ -39,7 +47,7 @@ class W4LivewireModules extends Command
         File::ensureDirectoryExists(dirname($bladePath));
 
         if (!File::exists($classPath)) {
-            File::put($classPath, $this->getClassStub($module, $namespace, $className, $viewSubdir, $viewName));
+            File::put($classPath, $this->getClassStub($moduleStudly, $namespace, $className, $viewSubdir, $viewName));
             $this->info("✅ Clase Livewire creada: {$classPath}");
         } else {
             $this->warn("⚠️ La clase ya existe: {$classPath}");
@@ -52,20 +60,20 @@ class W4LivewireModules extends Command
             $this->warn("⚠️ La vista ya existe: {$bladePath}");
         }
 
-        $livewireTag = strtolower($module) . '::' . ($viewSubdir ? $viewSubdir . '.' : '') . $viewName;
-        $fqcn = "Modules\\{$module}\\Livewire" . ($namespace ? "\\{$namespace}" : '') . "\\{$className}";
+        $livewireTag = strtolower($actualModule) . '::' . ($viewSubdir ? $viewSubdir . '.' : '') . $viewName;
+        $fqcn = "Modules\\{$moduleStudly}\\Livewire" . ($namespace ? "\\{$namespace}" : '') . "\\{$className}";
 
         $registrationLine = "Livewire::component('{$livewireTag}', {$className}::class);";
         $this->line("\n📦 Renderízalo en Blade con:\n  <livewire:{$livewireTag} />");
         $this->line("\n🧩 Registrando en ServiceProvider...\n  {$registrationLine}");
 
-        $this->injectIntoServiceProvider($module, $registrationLine, $fqcn, $className);
+        $this->injectIntoServiceProvider($actualModule, $registrationLine, $fqcn, $className);
     }
 
-    protected function getClassStub($module, $namespace, $className, $viewSubdir, $viewName): string
+    protected function getClassStub($moduleStudly, $namespace, $className, $viewSubdir, $viewName): string
     {
-        $fullView = strtolower($module) . "::livewire" . ($viewSubdir ? ".{$viewSubdir}" : '') . ".{$viewName}";
-        $namespaceLine = "Modules\\{$module}\\Livewire" . ($namespace ? "\\{$namespace}" : "");
+        $fullView = strtolower($moduleStudly) . "::livewire" . ($viewSubdir ? ".{$viewSubdir}" : '') . ".{$viewName}";
+        $namespaceLine = "Modules\\{$moduleStudly}\\Livewire" . ($namespace ? "\\{$namespace}" : "");
 
         return <<<PHP
 <?php
@@ -86,17 +94,19 @@ PHP;
 
     protected function getBladeStub(string $className): string
     {
-        return <<<BLADE
+     $quote = strip_tags(preg_replace('/<[^>]+>/', '', \Illuminate\Foundation\Inspiring::quote()));
+
+    return <<<BLADE
 <div>
     {{-- Componente {$className} --}}
-    {{ Illuminate\Foundation\Inspiring::quotes()->random() }}
+    {{-- {$quote} --}}
 </div>
 BLADE;
     }
 
-    protected function injectIntoServiceProvider(string $module, string $lineToAdd, string $fqcn, string $className): void
+    protected function injectIntoServiceProvider(string $actualModule, string $lineToAdd, string $fqcn, string $className): void
     {
-        $providerPath = base_path("Modules/{$module}/app/Providers/{$module}ServiceProvider.php");
+        $providerPath = base_path("Modules/{$actualModule}/app/Providers/{$actualModule}ServiceProvider.php");
 
         if (!File::exists($providerPath)) {
             $this->warn("⚠️ ServiceProvider no encontrado: {$providerPath}");

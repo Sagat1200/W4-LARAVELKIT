@@ -64,7 +64,7 @@
     }
 </style>
 
-{{-- @include('components.w4laravelkit.ui.select-tematico', [
+{{-- @include('components.w4laravelkit.ui.select-component', [
     'wire:model' => 'tipo_domicilio',
     'model' => 'tipo_domicilio',
     'options' => [
@@ -74,7 +74,7 @@
     'placeholder' => 'TIPO DE DOMICILIO'
 ]) --}}
 
-{{-- <x-w4laravelkit.ui.select-tematico wire:model="tipo_domicilio" model="tipo_domicilio" :options="[
+{{-- <x-w4laravelkit.ui.select-component wire:model="tipo_domicilio" model="tipo_domicilio" :options="[
     'PROPIO', 
     'RENTADO',
     ]"

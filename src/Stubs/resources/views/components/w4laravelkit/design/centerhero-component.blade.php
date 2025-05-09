@@ -10,14 +10,14 @@
         </div>
     </div>
 </div>
-{{-- @include('components.w4laravelkit.design.centerhero', [
+{{-- @include('components.w4laravelkit.design.centerhero-component', [
       'title' => 'Title',
       'message' => 'Message',
       'route' => 'Route',
       'textButton' => 'Button',
   ])  --}}
 
-{{--<x-w4laravelkit.design.centerhero 
+{{--<x-w4laravelkit.design.centerhero-component 
     :title="'Title'" 
     :message="'Message'" 
     :route="'Route'" 

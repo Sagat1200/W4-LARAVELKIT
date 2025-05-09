@@ -19,6 +19,6 @@ class SelectComponent extends Component
      */
     public function render()
     {
-        return view('components.w4laravelkit.select-component');
+        return view('components.w4laravelkit.ui.select-component');
     }
 }
