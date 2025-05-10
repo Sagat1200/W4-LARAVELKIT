@@ -1,9 +1,11 @@
 @props([
     'themes' => [
-        'light', 'night', 'cupcake', 'bumblebee', 'dark', 'lofi', 'emerald', 'corporate', 'synthwave', 'retro', 'cyberpunk', 'valentine',
-        'halloween', 'garden', 'forest', 'aqua', 'pastel', 'fantasy', 'wireframe', 'black', 'luxury', 'dracula', 'cmyk', 'autumn',
-        'business', 'acid', 'lemonade', 'coffee', 'dim', 'nord', 'sunset', 'caramellatte', 'abyss', 'silk', 'winter',
-        'irongoblin', 'afkalmost', 'wigglycake', 'ironicflip', 'superschool', 'goatedburn', 'nextfox'
+    'abyss','academik','acid','afkalmost','aqua','autumn','black',
+    'bumblebee','business','caramellatte','cmyk','coffee','corporate','cupcake',
+    'cyberpunk','dark','dim','dracula','emerald','fantasy','forest',
+    'garden','goatedburn','halloween','ironicflip','irongoblin','lemonade','light',
+    'lofi','luxury','nextfox','night','nord','pastel','retro',
+    'silk','sunset','synthwave','valentine','wigglycake','winter','wireframe',
     ]
 ])
 
@@ -16,7 +18,7 @@
 
     <!-- Menú desplegable -->
     <ul x-show="open" x-transition
-        class="grid grid-cols-7 gap-2 p-2 mt-1 w-[28rem] h-[24rem] overflow-y-auto text-gray-500 shadow-lg absolute z-20 bg-base-300 rounded-box"
+        class="grid grid-cols-7 gap-2 p-2 mt-1 w-[28rem] h-[14rem] overflow-y-auto text-gray-500 shadow-lg absolute z-20 bg-base-300 rounded-box"
         style="top: 100%;">
         @foreach ($themes as $theme)
             <li>

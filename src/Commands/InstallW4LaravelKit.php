@@ -364,7 +364,7 @@ JS;
 
 
 @plugin "daisyui/theme" {
-  name: "superschool";
+  name: "Academik";
   default: false;
   prefersdark: false;
   color-scheme: "light";
@@ -643,7 +643,7 @@ CSS;
 </head>
 
 <body>
-    {{--{{ \$slot }}--}}
+    {{ \$slot }}
     @livewireScripts
     @bukScripts
     {{-- Vite JS --}}

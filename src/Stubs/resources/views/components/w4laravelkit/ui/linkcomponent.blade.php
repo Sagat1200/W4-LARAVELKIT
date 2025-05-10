@@ -17,8 +17,8 @@
     [data-tooltip]::before {
         content: attr(data-tooltip);
         position: absolute;
-        background-color: oklch(var(--p));
-        color: oklch(var(--pc));
+        background-color: var(--color-primary);
+        color: var(--color-primary-content);
         padding: 0.5rem;
         border-radius: 0.25rem;
         white-space: nowrap;
