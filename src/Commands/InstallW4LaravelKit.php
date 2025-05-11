@@ -86,7 +86,7 @@ class InstallW4LaravelKit extends Command
         // Modificar composer.json para agregar el post-update-cmd
         $this->updateComposerScripts();
 
-        $this->info('✅ W3BLaravelKit instalado correctamente.');
+        $this->info('✅ W4LaravelKit instalado correctamente.');
     }
 
     protected function updateAppLayout()
@@ -364,7 +364,7 @@ JS;
 
 
 @plugin "daisyui/theme" {
-  name: "superschool";
+  name: "Academik";
   default: false;
   prefersdark: false;
   color-scheme: "light";
@@ -643,7 +643,7 @@ CSS;
 </head>
 
 <body>
-    {{--{{ \$slot }}--}}
+    {{ \$slot }}
     @livewireScripts
     @bukScripts
     {{-- Vite JS --}}
@@ -735,7 +735,7 @@ JS;
 
         file_put_contents($viteStubPath, $newStubContent);
 
-        $this->info('✅ Se ha actualizado el archivo vite.stub en stubs/nwidart-stubs.');
+        $this->info('✅ Se ha actualizado el archivo vite.stub en stubs/nwidart-stubs de Laravel Modules.');
     }
 
 
@@ -810,12 +810,12 @@ JS;
             $composerJson['autoload']['psr-4'] = [];
         }
 
-        // Agregar el namespace "W3btech\\W3blaravelkit\\" si no existe
-        if (!isset($composerJson['autoload']['psr-4']['W3btech\\W3blaravelkit\\'])) {
-            $composerJson['autoload']['psr-4']['W3btech\\W3blaravelkit\\'] = "src/";
-            $this->info('✅ Se ha agregado "W3btech\\W3blaravelkit\\" en autoload PSR-4.');
+        // Agregar el namespace "W4\\W4laravelkit\\" si no existe
+        if (!isset($composerJson['autoload']['psr-4']['w4\\laravelkit\\'])) {
+            $composerJson['autoload']['psr-4']['w4\\laravelkit\\'] = "src/";
+            $this->info('✅ Se ha agregado "W4\\laravelkit\\" en autoload PSR-4.');
         } else {
-            $this->info('⚠️ "W3btech\\W3blaravelkit\\" ya está presente en autoload PSR-4.');
+            $this->info('⚠️ "W4\\laravelkit\\" ya está presente en autoload PSR-4.');
         }
 
         // Escribir los cambios en el composer.json
