@@ -129,7 +129,7 @@ class InstallW4LaravelKit extends Command
 <body>
     {{ \$slot }}
     @livewireScripts
-    @livewire('w3btlaravelkit.ui.toast-component')
+    <livewire:w4laravelkit.ui.toast-component />
     @bukScripts
 </body>
 
@@ -645,6 +645,7 @@ CSS;
 <body>
     {{ \$slot }}
     @livewireScripts
+    <livewire:w4laravelkit.ui.toast-component />
     @bukScripts
     {{-- Vite JS --}}
     {{-- {{ module_vite('build-\$LOWER_NAME\$', 'resources/assets/js/app.js') }} --}}
