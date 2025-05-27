@@ -10,7 +10,10 @@ class W4LivewireModules extends Command
 {
     protected $signature = 'w4laravelkit-module:make-livewire
                             {componentPath : Ruta del componente (ej. Ventas/Form/Crear)}
-                            {module : Nombre del módulo (ej. CONTABILIDAD)}';
+                            {module : Nombre del módulo (ej. CONTABILIDAD)}
+                            {--form : Crear un objeto de formulario Livewire\\Form asociado}
+                            {--test : Crear prueba Livewire PHPUnit asociada}
+                            {--pest : Usar Pest en lugar de PHPUnit}';
 
     protected $description = 'Crea un componente Livewire dentro de un módulo de Laravel Modules y lo registra en el ServiceProvider';
 
@@ -19,7 +22,6 @@ class W4LivewireModules extends Command
         $componentPath = str_replace('\\', '/', $this->argument('componentPath'));
         $moduleInput = $this->argument('module');
 
-        // Detección case-insensitive del módulo
         $modulesBase = base_path('Modules');
         $actualModule = collect(File::directories($modulesBase))
             ->map(fn ($path) => basename($path))
@@ -46,8 +48,27 @@ class W4LivewireModules extends Command
         File::ensureDirectoryExists(dirname($classPath));
         File::ensureDirectoryExists(dirname($bladePath));
 
+        if ($this->option('form')) {
+            $formClassName = $className . 'Form';
+            $formNamespace = "Modules\\{$moduleStudly}\\Livewire\\Forms" . ($namespace ? "\\{$namespace}" : '');
+            $formPath = "$basePath/app/Livewire/Forms" . ($subdir ? "/{$subdir}" : '') . "/{$formClassName}.php";
+
+            File::ensureDirectoryExists(dirname($formPath));
+
+            if (!File::exists($formPath)) {
+                File::put($formPath, $this->getFormStub($formNamespace, $formClassName));
+                $this->info("✅ Objeto de formulario creado: {$formPath}");
+            } else {
+                $this->warn("⚠️ El objeto de formulario ya existe: {$formPath}");
+            }
+        }
+
         if (!File::exists($classPath)) {
-            File::put($classPath, $this->getClassStub($moduleStudly, $namespace, $className, $viewSubdir, $viewName));
+            $stub = $this->option('form')
+                ? $this->getClassStubWithForm($moduleStudly, $namespace, $className, $viewSubdir, $viewName, $formClassName, $formNamespace)
+                : $this->getClassStub($moduleStudly, $namespace, $className, $viewSubdir, $viewName);
+
+            File::put($classPath, $stub);
             $this->info("✅ Clase Livewire creada: {$classPath}");
         } else {
             $this->warn("⚠️ La clase ya existe: {$classPath}");
@@ -60,14 +81,68 @@ class W4LivewireModules extends Command
             $this->warn("⚠️ La vista ya existe: {$bladePath}");
         }
 
+        if ($this->option('test')) {
+            $testType = $this->option('pest') ? 'Pest' : 'PHPUnit';
+            $testNamespace = 'Tests\\Feature\\Livewire';
+            $testPath = base_path("tests/Feature/Livewire/{$className}Test.php");
+            File::ensureDirectoryExists(dirname($testPath));
+
+            if (!File::exists($testPath)) {
+                $stub = $this->option('pest')
+                    ? $this->getPestTestStub($className, $moduleStudly, $namespace)
+                    : $this->getPhpUnitTestStub($className, $moduleStudly, $namespace);
+
+                File::put($testPath, $stub);
+                $this->info("✅ Prueba {$testType} creada: {$testPath}");
+            } else {
+                $this->warn("⚠️ La prueba ya existe: {$testPath}");
+            }
+        }
+
         $livewireTag = strtolower($actualModule) . '::' . ($viewSubdir ? $viewSubdir . '.' : '') . $viewName;
         $fqcn = "Modules\\{$moduleStudly}\\Livewire" . ($namespace ? "\\{$namespace}" : '') . "\\{$className}";
 
         $registrationLine = "Livewire::component('{$livewireTag}', {$className}::class);";
-        $this->line("\n📦 Renderízalo en Blade con:\n  <livewire:{$livewireTag} />");
-        $this->line("\n🧩 Registrando en ServiceProvider...\n  {$registrationLine}");
+        $this->line("\n🏦 Renderízalo en Blade con:\n  <livewire:{$livewireTag} />");
+        $this->line("\n🧹 Registrando en ServiceProvider...\n  {$registrationLine}");
 
         $this->injectIntoServiceProvider($actualModule, $registrationLine, $fqcn, $className);
+    }
+
+    protected function getPhpUnitTestStub(string $className, string $module, string $namespace): string
+    {
+        return <<<PHP
+<?php
+
+namespace Tests\Feature\Livewire;
+
+use Modules\{$module}\Livewire" . ($namespace ? "\\{$namespace}" : '') . "\\{$className};
+use Livewire\Livewire;
+use Tests\TestCase;
+
+class {$className}Test extends TestCase
+{
+    /** @test */
+    public function renders_successfully()
+    {
+        Livewire::test({$className}::class)
+            ->assertStatus(200);
+    }
+}
+PHP;
+    }
+
+    protected function getPestTestStub(string $className, string $module, string $namespace): string
+    {
+        return <<<PHP
+use Modules\{$module}\Livewire" . ($namespace ? "\\{$namespace}" : '') . "\\{$className};
+use Livewire\Livewire;
+
+test('renders successfully', function () {
+    Livewire::test({$className}::class)
+        ->assertStatus(200);
+});
+PHP;
     }
 
     protected function getClassStub($moduleStudly, $namespace, $className, $viewSubdir, $viewName): string
@@ -92,11 +167,54 @@ class {$className} extends Component
 PHP;
     }
 
+    protected function getClassStubWithForm($moduleStudly, $namespace, $className, $viewSubdir, $viewName, $formClassName, $formNamespace): string
+    {
+        $fullView = strtolower($moduleStudly) . "::livewire" . ($viewSubdir ? ".{$viewSubdir}" : '') . ".{$viewName}";
+        $namespaceLine = "Modules\\{$moduleStudly}\\Livewire" . ($namespace ? "\\{$namespace}" : "");
+
+        return <<<PHP
+<?php
+
+namespace {$namespaceLine};
+
+use Livewire\Component;
+use {$formNamespace}\\{$formClassName};
+
+class {$className} extends Component
+{
+    public {$formClassName} \$form;
+
+    public function render()
+    {
+        return view('{$fullView}');
+    }
+}
+PHP;
+    }
+
+    protected function getFormStub(string $namespace, string $className): string
+    {
+        return <<<PHP
+<?php
+
+namespace {$namespace};
+
+use Livewire\Form;
+use Livewire\Attributes\Validate;
+
+class {$className} extends Form
+{
+    #[Validate('required')]
+    public \$campo = '';
+}
+PHP;
+    }
+
     protected function getBladeStub(string $className): string
     {
-     $quote = strip_tags(preg_replace('/<[^>]+>/', '', \Illuminate\Foundation\Inspiring::quote()));
+        $quote = strip_tags(preg_replace('/<[^>]+>/', '', \Illuminate\Foundation\Inspiring::quote()));
 
-    return <<<BLADE
+        return <<<BLADE
 <div>
     {{-- Componente {$className} --}}
     {{-- {$quote} --}}
@@ -140,3 +258,4 @@ BLADE;
         File::put($providerPath, $content);
     }
 }
+
