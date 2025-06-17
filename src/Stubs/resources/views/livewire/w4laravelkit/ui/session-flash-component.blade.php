@@ -19,7 +19,7 @@
             };
         @endphp
 
-        <div class="fixed {{ $positionClasses }} space-y-2 z-50">
+        <div class="fixed {{ $positionClasses }} space-y-2 z-[9999]">
             <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => { show = false }, {{ session('timeout', 3000) }})"
                 class="{{ $alertClasses }} rounded shadow-lg p-4 flex flex-col space-y-2 items-start">
 
@@ -57,3 +57,10 @@
 </div>
 {{-- @livewire('w4laravelkit.ui.session-flash-component') --}}
 {{-- <livewire:w4laravelkit.ui.session-flash-component /> --}}
+{{-- Usar en la clase:
+session()->flash('alertType', 'alert-success');
+            session()->flash('message', '¡Mensaje!');
+            session()->flash('icon', 'fa-solid fa-check-circle');
+            session()->flash('position', 'bottom-right');
+            session()->flash('progressBar', true);
+            session()->flash('timeout', 5000); --}}

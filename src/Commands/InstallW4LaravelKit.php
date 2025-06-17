@@ -48,6 +48,9 @@ class InstallW4LaravelKit extends Command
         shell_exec('php artisan lang:add es');
         shell_exec('php artisan lang:update');
 
+        // Instalar Redis
+        shell_exec('composer require predis/predis:^2.0');
+
         // Actualizar config/app.php con timezone y locales
         $this->updateAppConfig();
 
@@ -72,6 +75,12 @@ class InstallW4LaravelKit extends Command
         // Instalar Laravel WorkFlow
         shell_exec('composer require laravel-workflow/laravel-workflow');
         shell_exec('php artisan vendor:publish --provider="Workflow\Providers\WorkflowServiceProvider" --tag="migrations"');
+        shell_exec('php artisan vendor:publish --provider="Workflow\Providers\WorkflowServiceProvider" --tag="config"');
+
+        // Instalar Spatie Laravel (Roles y Permisos)
+        shell_exec('composer require spatie/laravel-permission');
+        shell_exec('php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"');
+
 
          // NUEVO: Modificar config/modules.php para stubs habilitados y path a stubs/nwidart-stubs
          $this->updateModulesConfig();
@@ -130,6 +139,7 @@ class InstallW4LaravelKit extends Command
     {{ \$slot }}
     @livewireScripts
     <livewire:w4laravelkit.ui.toast-component />
+    <livewire:w4laravelkit.ui.session-flash-component />
     @bukScripts
 </body>
 
@@ -551,6 +561,17 @@ CSS;
             'APP_LOCALE' => 'es',
             'APP_FALLBACK_LOCALE' => 'es',
             'APP_FAKER_LOCALE' => 'en_ES',
+
+            'REDIS_CLIENT' => 'predis',
+            'CACHE_DRIVER' => 'redis',
+            'QUEUE_CONNECTION' => 'redis',
+            'SESSION_DRIVER' => 'redis',
+
+            'REDIS_HOST' => '127.0.0.1',
+            'REDIS_PASSWORD' => 'null',
+            'REDIS_PORT' => '6379',
+            'REDIS_DB' => '0',
+            'REDIS_CACHE_DB' => '1',
         ];
 
         foreach ($newEnvVariables as $key => $value) {
@@ -646,6 +667,7 @@ CSS;
     {{ \$slot }}
     @livewireScripts
     <livewire:w4laravelkit.ui.toast-component />
+    <livewire:w4laravelkit.ui.session-flash-component />
     @bukScripts
     {{-- Vite JS --}}
     {{-- {{ module_vite('build-\$LOWER_NAME\$', 'resources/assets/js/app.js') }} --}}

@@ -13,7 +13,7 @@
                 : 'top-5 right-5';
     @endphp
 
-    <div class="fixed {{ $containerPosition }} space-y-2 z-50">
+    <div class="fixed {{ $containerPosition }} space-y-2 z-[9999]">
         @foreach ($toasts as $index => $toast)
             @php
                 $alertClasses = match ($toast['type']) {
