@@ -36,6 +36,7 @@ class InstallW4LaravelKit extends Command
         shell_exec('composer require power-components/livewire-powergrid');
         shell_exec('php artisan vendor:publish --tag=livewire-powergrid-config');
         shell_exec('php artisan vendor:publish --tag=livewire-powergrid-lang');
+        shell_exec('composer require openspout/openspout:^4.0');
         shell_exec('php artisan powergrid:update');
         shell_exec('npm i flatpickr --save');
         shell_exec('npm i slim-select');

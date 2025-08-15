@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use W4LaravelKit\Commands\W4LivewireModules;
 use W4Laravelkit\Commands\InstallW4LaravelKit;
+use App\Livewire\W4LaravelKit\PowerGrid\RefreshTable\TableRefresherComponent;
 use App\Livewire\W4LaravelKit\UI\ToastComponent;
 use App\View\Components\W4LaravelKit\UI\LinkComponent;
 use App\Livewire\W4LaravelKit\UI\SessionFlashComponent;
@@ -164,6 +165,14 @@ class W4LaravelKitServiceProvider extends ServiceProvider
 
                 //📌 Livewire Components
 
+                // 📌 Livewire RefreshTable Component
+                __DIR__ . '/../Stubs/app/Livewire/W4LaravelKit/PowerGrid/RefreshTable/TableRefresherComponent.php'
+                => app_path('Livewire/W4LaravelKit/PowerGrid/RefreshTable/TableRefresherComponent.php'),
+
+                // 📌 Livewire table-refresher-component Views
+                __DIR__ . '/../Stubs/resources/views/livewire/w4laravelkit/power-grid/refresh-table/table-refresher-component.blade.php'
+                => resource_path('views/livewire/w4laravelkit/power-grid/refresh-table/table-refresher-component.blade.php'),
+
                 // 📌 Livewire CheckboxToggle Component
                 __DIR__ . '/../Stubs/app/Livewire/W4LaravelKit/UI/CheckboxToggleComponent.php'
                 => app_path('Livewire/W4LaravelKit/UI/CheckboxToggleComponent.php'),
@@ -252,6 +261,11 @@ class W4LaravelKitServiceProvider extends ServiceProvider
         }
 
         // ✅ Registrar Componentes Livewire solo si existen
+
+        if (class_exists(TableRefresherComponent::class)) {
+            Livewire::component('w4laravelkit.tableRefresh', TableRefresherComponent::class);
+        }
+
         if (class_exists(ToastComponent::class)) {
             Livewire::component('w4laravelkit.toast', ToastComponent::class);
         }
