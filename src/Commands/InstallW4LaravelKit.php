@@ -55,10 +55,6 @@ class InstallW4LaravelKit extends Command
         // Actualizar config/app.php con timezone y locales
         $this->updateAppConfig();
 
-        // Instalar Blade-UI
-        shell_exec('composer require blade-ui-kit/blade-ui-kit');
-        shell_exec('php artisan vendor:publish --tag=blade-ui-kit-config');
-
         // Instalar Blade-FontAwesome
         shell_exec('composer require owenvoke/blade-fontawesome');
         shell_exec('php artisan vendor:publish --tag=blade-fontawesome-config');
