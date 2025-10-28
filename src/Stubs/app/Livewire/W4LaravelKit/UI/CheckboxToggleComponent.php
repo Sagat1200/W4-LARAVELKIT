@@ -7,23 +7,21 @@ use Livewire\Component;
 class CheckboxToggleComponent extends Component
 {
 
-    public $checked = false;
-    public $label = 'Remember me'; // Valor por defecto para el enunciado
-    public $model; // Propiedad dinámica para `wire:model`
+    #[Modelable]
+    public bool $checked = false;
 
-    public function mount($model = 'checked', $checked = false)
+    public string $label = 'Remember me';
+
+    public function mount(bool $checked = false, ?string $label = null): void
     {
-        $this->model = $model;
         $this->checked = $checked;
-    }
-
-    public function updatedChecked($value)
-    {
-        // Manejar el cambio del checkbox si es necesario
+        if ($label !== null) {
+            $this->label = $label;
+        }
     }
 
     public function render()
     {
-        return view('livewire.w4tlaravelkit.ui.checkbox-toggle-component');
+        return view('livewire.w4laravelkit.ui.checkbox-toggle-component');
     }
 }

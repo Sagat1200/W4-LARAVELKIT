@@ -15,6 +15,8 @@ use App\View\Components\W4LaravelKit\UI\ButtonComponent;
 use App\View\Components\W4LaravelKit\UI\SelectComponent;
 use App\Livewire\W4LaravelKit\UI\CheckboxToggleComponent;
 use App\View\Components\W4LaravelKit\UI\InputDateComponent;
+use App\View\Components\W4LaravelKit\UI\InputDateTimeComponent;
+use App\View\Components\W4LaravelKit\UI\InputTimeComponent;
 use App\View\Components\W4LaravelKit\UI\InputFileComponent;
 use App\View\Components\W4LaravelKit\UI\InputTextComponent;
 use App\View\Components\W4LaravelKit\UI\PaginatorComponent;
@@ -42,6 +44,9 @@ class W4LaravelKitServiceProvider extends ServiceProvider
 
             // 📌 Publicar Clases y Vistas de componentes en el Proyecto Laravel
             $this->publishes([
+
+                //DESIGN
+
                 // 📌 AppMenu Component
                 __DIR__ . '/../Stubs/app/View/Components/W4LaravelKit/Design/AppMenuComponent.php'
                 => app_path('View/Components/W4LaravelKit/Design/AppMenuComponent.php'),
@@ -74,6 +79,9 @@ class W4LaravelKitServiceProvider extends ServiceProvider
                 __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/design/tablenamecomponent.blade.php'
                 => resource_path('views/components/w4laravelkit/design/tablenamecomponent.blade.php'),
 
+
+                // UI
+
                 // 📌 Button Component
                 __DIR__ . '/../Stubs/app/View/Components/W4LaravelKit/UI/ButtonComponent.php'
                 => app_path('View/Components/W4LaravelKit/UI/ButtonComponent.php'),
@@ -90,61 +98,78 @@ class W4LaravelKitServiceProvider extends ServiceProvider
                 __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/ui/inputdatecomponent.blade.php'
                 => resource_path('views/components/w4laravelkit/ui/inputdatecomponent.blade.php'),
 
+                // 📌 InputDateTime Component
+                __DIR__ . '/../Stubs/app/View/Components/W4LaravelKit/UI/InputDateTimeComponent.php'
+                => app_path('View/Components/W4LaravelKit/UI/InputDateTimeComponent.php'),
+
+                // 📌 Blade InputDateTime Component Views
+                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/ui/inputdatetimecomponent.blade.php'
+                => resource_path('views/components/w4laravelkit/ui/inputdatetimecomponent.blade.php'),
+
+
+                // 📌 InputTime Component
+                __DIR__ . '/../Stubs/app/View/Components/W4LaravelKit/UI/InputTimeComponent.php'
+                => app_path('View/Components/W4LaravelKit/UI/InputTimeComponent.php'),
+
+                // 📌 Blade InputTime Component Views
+                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/ui/inputtime-component.blade.php'
+                => resource_path('views/components/w4laravelkit/ui/inputtime-component.blade.php'),
+
                 // 📌 InputFile Component
                 __DIR__ . '/../Stubs/app/View/Components/W4LaravelKit/UI/InputFileComponent.php'
                 => app_path('View/Components/W4LaravelKit/UI/InputFileComponent.php'),
 
                 // 📌 Blade InputFile Component Views
-                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/ui/inputfilecomponent.blade.php'
-                => resource_path('views/components/w4laravelkit/ui/inputfilecomponent.blade.php'),
+                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/ui/inputfile-component.blade.php'
+                => resource_path('views/components/w4laravelkit/ui/inputfile-component.blade.php'),
 
                 // 📌 InputTextArea Component
                 __DIR__ . '/../Stubs/app/View/Components/W4LaravelKit/UI/InputTextAreaComponent.php'
                 => app_path('View/Components/W4LaravelKit/UI/InputTextAreaComponent.php'),
 
                 // 📌 Blade InputTextArea Component Views
-                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/ui/inputtextareacomponent.blade.php'
-                => resource_path('views/components/w4laravelkit/ui/inputtextareacomponent.blade.php'),
+                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/ui/inputtextarea-component.blade.php'
+                => resource_path('views/components/w4laravelkit/ui/inputtextarea-component.blade.php'),
 
                 // 📌 InputText Component
                 __DIR__ . '/../Stubs/app/View/Components/W4LaravelKit/UI/InputTextComponent.php'
                 => app_path('View/Components/W4LaravelKit/UI/InputTextComponent.php'),
 
                 // 📌 Blade InputText Component Views
-                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/ui/inputtextcomponent.blade.php'
-                => resource_path('views/components/w4laravelkit/ui/inputtextcomponent.blade.php'),
+                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/ui/inputtext-component.blade.php'
+                => resource_path('views/components/w4laravelkit/ui/inputtext-component.blade.php'),
 
                 // 📌 InputTextLower Component
                 __DIR__ . '/../Stubs/app/View/Components/W4LaravelKit/UI/InputTextLowerComponent.php'
                 => app_path('View/Components/W4LaravelKit/UI/InputTextLowerComponent.php'),
 
                 // 📌 Blade InputTextLower Component Views
-                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/ui/inputtextlowercomponent.blade.php'
-                => resource_path('views/components/w4laravelkit/ui/inputtextlowercomponent.blade.php'),
+                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/ui/inputtextlower-component.blade.php'
+                => resource_path('views/components/w4laravelkit/ui/inputtextlower-component.blade.php'),
 
                 // 📌 InputTextReadOnly Component
                 __DIR__ . '/../Stubs/app/View/Components/W4LaravelKit/UI/InputTextReadOnlyComponent.php'
                 => app_path('View/Components/W4LaravelKit/UI/InputTextReadOnlyComponent.php'),
 
                 // 📌 Blade InputTextReadOnly Component Views
-                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/ui/inputtextreadonlycomponent.blade.php'
-                => resource_path('views/components/w4laravelkit/ui/inputtextreadonlycomponent.blade.php'),
+                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/ui/inputtextreadonly-component.blade.php'
+                => resource_path('views/components/w4laravelkit/ui/inputtextreadonly-component.blade.php'),
 
                 // 📌 Link Component
                 __DIR__ . '/../Stubs/app/View/Components/W4LaravelKit/UI/LinkComponent.php'
                 => app_path('View/Components/W4LaravelKit/UI/LinkComponent.php'),
 
                 // 📌 Blade Link Component Views
-                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/ui/linkcomponent.blade.php'
-                => resource_path('views/components/w4laravelkit/ui/linkcomponent.blade.php'),
+                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/ui/link-component.blade.php'
+                => resource_path('views/components/w4laravelkit/ui/link-component.blade.php'),
 
                 // 📌 Paginator Component
                 __DIR__ . '/../Stubs/app/View/Components/W4LaravelKit/UI/PaginatorComponent.php'
                 => app_path('View/Components/W4LaravelKit/UI/PaginatorComponent.php'),
 
                 // 📌 Blade Paginator Component Views
-                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/ui/paginatorcomponent.blade.php'
-                => resource_path('views/components/w4laravelkit/ui/paginatorcomponent.blade.php'),
+                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/ui/paginator-component.blade.php'
+                => resource_path('views/components/w4laravelkit/ui/paginator-component.blade.php'),
 
                 // 📌 Select Component
                 __DIR__ . '/../Stubs/app/View/Components/W4LaravelKit/UI/SelectComponent.php'
@@ -159,8 +184,8 @@ class W4LaravelKitServiceProvider extends ServiceProvider
                 => app_path('View/Components/W4LaravelKit/UI/ThemeDropdownComponent.php'),
 
                 // 📌 Blade ThemeDropdown Component Views
-                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/ui/themedropdowncomponent.blade.php'
-                => resource_path('views/components/w4laravelkit/ui/themedropdowncomponent.blade.php'),
+                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/ui/themedropdown-component.blade.php'
+                => resource_path('views/components/w4laravelkit/ui/themedropdown-component.blade.php'),
 
 
                 //📌 Livewire Components
@@ -199,7 +224,7 @@ class W4LaravelKitServiceProvider extends ServiceProvider
             ], 'w4laravelkit-components');
         }
 
-        // ✅ Registrar Componentes Blade solo si existen
+        // ✅ Registrar Componentes de Diseño Blade solo si existen
         if (class_exists(AppMenuComponent::class)) {
             Blade::component('w4laravelkit-appmenu', AppMenuComponent::class);
         }
@@ -216,12 +241,22 @@ class W4LaravelKitServiceProvider extends ServiceProvider
             Blade::component('w4laravelkit-tablename', TableNameComponent::class);
         }
 
+        // ✅ Registrar Componentes de Ui Blade solo si existen
+
         if (class_exists(ButtonComponent::class)) {
             Blade::component('w4laravelkit-button', ButtonComponent::class);
         }
 
         if (class_exists(InputDateComponent::class)) {
             Blade::component('w4laravelkit-inputDate', InputDateComponent::class);
+        }
+
+        if (class_exists(InputDateTimeComponent::class)) {
+            Blade::component('w4laravelkit-inputDateTime', InputDateTimeComponent::class);
+        }
+
+        if (class_exists(InputTimeComponent::class)) {
+            Blade::component('w4laravelkit-inputTime', InputTimeComponent::class);
         }
 
         if (class_exists(InputFileComponent::class)) {

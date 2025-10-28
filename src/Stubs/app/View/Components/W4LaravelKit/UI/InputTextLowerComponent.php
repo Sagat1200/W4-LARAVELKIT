@@ -30,6 +30,6 @@ class InputTextLowerComponent extends Component
      */
     public function render(): View|string
     {
-        return view('components.w4laravelkit.ui.inputtextlowercomponent');
+        return view('components.w4laravelkit.ui.inputtextlower-component');
     }
 }

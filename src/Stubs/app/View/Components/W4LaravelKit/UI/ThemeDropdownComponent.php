@@ -19,6 +19,6 @@ class ThemeDropdownComponent extends Component
      */
     public function render()
     {
-        return view('components.w4laravelkit.ui.themedropdowncomponent');
+        return view('components.w4laravelkit.ui.themedropdown-component');
     }
 }

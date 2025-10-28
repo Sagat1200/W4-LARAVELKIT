@@ -35,6 +35,6 @@ class LinkComponent extends Component
      */
     public function render(): View|string
     {
-        return view('components.w4laravelkit.ui.linkcomponent');
+        return view('components.w4laravelkit.ui.link-component');
     }
 }

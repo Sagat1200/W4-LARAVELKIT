@@ -22,6 +22,6 @@ class PaginatorComponent extends Component
      */
     public function render(): View|string
     {
-        return view('components.w4laravelkit.ui.paginatorcomponent');
+        return view('components.w4laravelkit.ui.paginator-component');
     }
 }

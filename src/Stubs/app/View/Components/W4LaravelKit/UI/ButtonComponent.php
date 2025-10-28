@@ -45,6 +45,6 @@ class ButtonComponent extends Component
      */
     public function render(): View|string
     {
-        return view('components.w4laravelkit.ui.buttoncomponent');
+        return view('components.w4laravelkit.ui.button-component');
     }
 }

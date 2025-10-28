@@ -23,6 +23,10 @@ class InstallW4LaravelKit extends Command
         shell_exec('composer require livewire/volt');
         shell_exec('php artisan volt:install');
 
+        // Instalar wire-elements Modal
+        shell_exec('composer require wire-elements/modal:^2.0');
+        shell_exec('php artisan vendor:publish --tag=wire-elements-modal-views');
+
         // Reemplazar el layout en app.blade.php
         $this->updateAppLayout();
 
@@ -54,10 +58,6 @@ class InstallW4LaravelKit extends Command
 
         // Actualizar config/app.php con timezone y locales
         $this->updateAppConfig();
-
-        // Instalar Blade-FontAwesome
-        shell_exec('composer require owenvoke/blade-fontawesome');
-        shell_exec('php artisan vendor:publish --tag=blade-fontawesome-config');
 
         // Modificar .env con las variables de entorno necesarias
         $this->updateEnvFile();
@@ -137,6 +137,12 @@ class InstallW4LaravelKit extends Command
     @livewireScripts
     <livewire:w4laravelkit.ui.toast-component />
     <livewire:w4laravelkit.ui.session-flash-component />
+    @persist('wem')
+        {{-- Livewire v3: persiste entre wire:navigate --}}
+        <div wire:ignore id="wem-root">
+            <livewire:wire-elements-modal :key="'wem-global'" />
+        </div>
+    @endpersist
     @bukScripts
 </body>
 

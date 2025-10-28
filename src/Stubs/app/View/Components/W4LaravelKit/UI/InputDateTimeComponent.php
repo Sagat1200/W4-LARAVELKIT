@@ -5,7 +5,7 @@ namespace App\View\Components\W4LaravelKit\UI;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class InputDateComponent extends Component
+class InputDateTimeComponent extends Component
 {
     public $type;
     public $placeholder;
@@ -28,6 +28,6 @@ class InputDateComponent extends Component
      */
     public function render(): View|string
     {
-        return view('components.w4laravelkit.ui.inputdate-component');
+        return view('components.w4laravelkit.ui.inputdatetime-component');
     }
 }

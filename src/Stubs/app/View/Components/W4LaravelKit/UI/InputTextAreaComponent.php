@@ -27,6 +27,6 @@ class InputTextAreaComponent extends Component
      */
     public function render(): View|string
     {
-        return view('components.w4laravelkit.ui.inputtextareacomponent');
+        return view('components.w4laravelkit.ui.inputtextarea-component');
     }
 }

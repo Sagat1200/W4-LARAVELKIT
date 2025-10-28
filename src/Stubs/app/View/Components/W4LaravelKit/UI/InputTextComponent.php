@@ -29,6 +29,6 @@ class InputTextComponent extends Component
      */
     public function render(): View|string
     {
-        return view('components.w4laravelkit.ui.inputtextcomponent');
+        return view('components.w4laravelkit.ui.inputtext-component');
     }
 }

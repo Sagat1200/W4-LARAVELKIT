@@ -25,6 +25,6 @@ class InputFileComponent extends Component
      */
     public function render(): View|string
     {
-        return view('components.w4laravelkit.ui.inputfilecomponent');
+        return view('components.w4laravelkit.ui.inputfile-component');
     }
 }
