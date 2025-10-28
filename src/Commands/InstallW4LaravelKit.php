@@ -24,7 +24,7 @@ class InstallW4LaravelKit extends Command
         shell_exec('php artisan volt:install');
 
         // Instalar wire-elements Modal
-        shell_exec('composer require wire-elements/modal:^2.0');
+        shell_exec('composer require wire-elements/modal');
         shell_exec('php artisan vendor:publish --tag=wire-elements-modal-views');
 
         // Reemplazar el layout en app.blade.php
