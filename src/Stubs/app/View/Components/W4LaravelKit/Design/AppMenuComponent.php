@@ -21,6 +21,6 @@ class AppMenuComponent extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.w4laravelkit.design.appmenucomponent');
+        return view('components.w4laravelkit.design.appmenu-component');
     }
 }

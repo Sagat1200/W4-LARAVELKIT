@@ -26,5 +26,5 @@
         </div>
     </nav>
 </div>
-{{-- @include('components.w4laravelkit.design.headercomponent') --}}
-{{-- <x-w4laravelkit.design.headercomponent/> --}}
+{{-- @include('components.w4laravelkit.design.header-component') --}}
+{{-- <x-w4laravelkit.design.header-component/> --}}

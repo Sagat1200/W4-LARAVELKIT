@@ -67,7 +67,7 @@ class InstallW4LaravelKit extends Command
         shell_exec('php artisan vendor:publish --provider="Nwidart\Modules\LaravelModulesServiceProvider"');
 
         // Instalar Neuron AI
-        shell_exec('composer require inspector-apm/neuron-ai');
+        shell_exec('composer require neuron-core/neuron-ai');
 
         // Instalar Laravel WorkFlow
         shell_exec('composer require laravel-workflow/laravel-workflow');
@@ -132,7 +132,6 @@ class InstallW4LaravelKit extends Command
     <script src="https://kit.fontawesome.com/8b186f73b9.js" crossorigin="anonymous"></script>
 
     @livewireStyles
-    @bukStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -147,7 +146,6 @@ class InstallW4LaravelKit extends Command
             <livewire:wire-elements-modal :key="'wem-global'" />
         </div>
     @endpersist
-    @bukScripts
 </body>
 
 </html>
@@ -666,7 +664,6 @@ CSS;
     <script src="https://kit.fontawesome.com/8b186f73b9.js" crossorigin="anonymous"></script>
 
     @livewireStyles
-    @bukStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     {{-- Vite CSS --}}
     {{-- {{ module_vite('build-\$LOWER_NAME\$', 'resources/assets/css/app.css') }} --}}
@@ -677,7 +674,6 @@ CSS;
     @livewireScripts
     <livewire:w4laravelkit.ui.toast-component />
     <livewire:w4laravelkit.ui.session-flash-component />
-    @bukScripts
     {{-- Vite JS --}}
     {{-- {{ module_vite('build-\$LOWER_NAME\$', 'resources/assets/js/app.js') }} --}}
 </body>

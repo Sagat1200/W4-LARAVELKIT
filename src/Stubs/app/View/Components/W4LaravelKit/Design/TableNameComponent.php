@@ -21,6 +21,6 @@ class TableNameComponent extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.w4laravelkit.design.tablenamecomponent');
+        return view('components.w4laravelkit.design.tablename-component');
     }
 }

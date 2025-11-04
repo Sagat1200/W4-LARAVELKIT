@@ -52,8 +52,8 @@ class W4LaravelKitServiceProvider extends ServiceProvider
                 => app_path('View/Components/W4LaravelKit/Design/AppMenuComponent.php'),
 
                 // 📌 Appmenu Component Views
-                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/design/appmenucomponent.blade.php'
-                => resource_path('views/components/w4laravelkit/design/appmenucomponent.blade.php'),
+                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/design/appmenu-component.blade.php'
+                => resource_path('views/components/w4laravelkit/design/appmenu-component.blade.php'),
 
                 // 📌 Center Hero Component
                 __DIR__ . '/../Stubs/app/View/Components/W4LaravelKit/Design/CenterHeroComponent.php'
@@ -68,16 +68,16 @@ class W4LaravelKitServiceProvider extends ServiceProvider
                 => app_path('View/Components/W4LaravelKit/Design/HeaderComponent.php'),
 
                 // 📌 Header Component Views
-                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/design/headercomponent.blade.php'
-                => resource_path('views/components/w4laravelkit/design/headercomponent.blade.php'),
+                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/design/header-component.blade.php'
+                => resource_path('views/components/w4laravelkit/design/header-component.blade.php'),
 
                 // 📌 TableName Component
                 __DIR__ . '/../Stubs/app/View/Components/W4LaravelKit/Design/TableNameComponent.php'
                 => app_path('View/Components/W4LaravelKit/Design/TableNameComponent.php'),
 
                 // 📌 Table Name Component Views
-                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/design/tablenamecomponent.blade.php'
-                => resource_path('views/components/w4laravelkit/design/tablenamecomponent.blade.php'),
+                __DIR__ . '/../Stubs/resources/views/components/w4laravelkit/design/tablename-component.blade.php'
+                => resource_path('views/components/w4laravelkit/design/tablename-component.blade.php'),
 
 
                 // UI

@@ -21,6 +21,6 @@ class HeaderComponent extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.w4laravelkit.design.headercomponent');
+        return view('components.w4laravelkit.design.header-component');
     }
 }
