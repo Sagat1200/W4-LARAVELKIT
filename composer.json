@@ -1,6 +1,6 @@
 {
     "name": "w4/laravelkit",
-    "description": "Paquete de Automatizacion Inicial de Configuracion de Proyectos LaravelLivewire PHP.",
+    "description": "Paquete de Automatizacion Inicial de Configuracion de Proyectos Laravel Livewire PHP.",
     "type": "library",
     "license": "MIT",
     "autoload": {
