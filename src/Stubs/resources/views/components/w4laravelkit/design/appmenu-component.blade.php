@@ -97,5 +97,5 @@
         @endforeach
     </ul>
 </nav>
-{{-- @include('components.w4laravelkit.design.appmenucomponent') --}}
-{{-- <x-w4laravelkit.design.appmenucomponent/> --}}
+{{-- @include('components.w4laravelkit.design.appmenu-component') --}}
+{{-- <x-w4laravelkit.design.appmenu-component/> --}}

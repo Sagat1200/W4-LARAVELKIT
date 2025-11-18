@@ -24,7 +24,7 @@ class InstallW4LaravelKit extends Command
         shell_exec('php artisan volt:install');
 
         // Instalar wire-elements Modal
-        shell_exec('composer require wire-elements/modal:^2.0');
+        shell_exec('composer require wire-elements/modal');
         shell_exec('php artisan vendor:publish --tag=wire-elements-modal-views');
 
         // Reemplazar el layout en app.blade.php
@@ -67,7 +67,7 @@ class InstallW4LaravelKit extends Command
         shell_exec('php artisan vendor:publish --provider="Nwidart\Modules\LaravelModulesServiceProvider"');
 
         // Instalar Neuron AI
-        shell_exec('composer require inspector-apm/neuron-ai');
+        shell_exec('composer require neuron-core/neuron-ai');
 
         // Instalar Laravel WorkFlow
         shell_exec('composer require laravel-workflow/laravel-workflow');
@@ -77,6 +77,10 @@ class InstallW4LaravelKit extends Command
         // Instalar Spatie Laravel (Roles y Permisos)
         shell_exec('composer require spatie/laravel-permission');
         shell_exec('php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"');
+
+         // Instalar Laravel DebugBar
+        shell_exec('composer require barryvdh/laravel-debugbar --dev');
+        shell_exec('php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"');
 
 
          // NUEVO: Modificar config/modules.php para stubs habilitados y path a stubs/nwidart-stubs
@@ -128,7 +132,6 @@ class InstallW4LaravelKit extends Command
     <script src="https://kit.fontawesome.com/8b186f73b9.js" crossorigin="anonymous"></script>
 
     @livewireStyles
-    @bukStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -143,7 +146,6 @@ class InstallW4LaravelKit extends Command
             <livewire:wire-elements-modal :key="'wem-global'" />
         </div>
     @endpersist
-    @bukScripts
 </body>
 
 </html>
@@ -547,7 +549,7 @@ CSS;
     }
 
     /**
-     * Modifica el archivo .env para agregar APP_LOCALE, APP_FALLBACK_LOCALE y APP_FAKER_LOCALE.
+     * Modifica el archivo .env para agregar o modificar variables
      */
     protected function updateEnvFile()
     {
@@ -577,6 +579,8 @@ CSS;
             'REDIS_PORT' => '6379',
             'REDIS_DB' => '0',
             'REDIS_CACHE_DB' => '1',
+
+            'DEBUGBAR_ENABLED' => 'true'
         ];
 
         foreach ($newEnvVariables as $key => $value) {
@@ -662,7 +666,6 @@ CSS;
     <script src="https://kit.fontawesome.com/8b186f73b9.js" crossorigin="anonymous"></script>
 
     @livewireStyles
-    @bukStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     {{-- Vite CSS --}}
     {{-- {{ module_vite('build-\$LOWER_NAME\$', 'resources/assets/css/app.css') }} --}}
@@ -673,7 +676,6 @@ CSS;
     @livewireScripts
     <livewire:w4laravelkit.ui.toast-component />
     <livewire:w4laravelkit.ui.session-flash-component />
-    @bukScripts
     {{-- Vite JS --}}
     {{-- {{ module_vite('build-\$LOWER_NAME\$', 'resources/assets/js/app.js') }} --}}
 </body>

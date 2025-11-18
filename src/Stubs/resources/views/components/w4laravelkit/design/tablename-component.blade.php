@@ -3,5 +3,5 @@
         {{ $tableName }}
     </h2>
 </div>
-{{-- @include('components.w4laravelkit.design.tablenamecomponent') --}}
-{{-- <x-w4laravelkit.design.tablenamecomponent/> --}}
+{{-- @include('components.w4laravelkit.design.tablename-component') --}}
+{{-- <x-w4laravelkit.design.tablename-component/> --}}

@@ -1,12 +1,13 @@
-# 🚀 W4-LaravelKit
+# 🚀 W4-LaravelKit-Livewire
 
-**W4-LaravelKit** Paquete diseñado para automatizar la instalación y configuración de los paquetes más utilizados en el desarrollo de proyectos **Laravel SPA (Single Page Applications)**. 
-Su objetivo es mejorar la **Reactividad**, el **Diseño de Interfaces**, la **Experiencia de Usuario (UX)**, la **Seguridad** y el **Desarrollo Modular** en Laravel.
+**W4-LaravelKit-Livewire** Paquete de software composer, diseñado para automatizar la instalación y configuración de paquetes para proyectos **Laravel SPA (Single Page Applications)** con Livewire. 
+Su objetivo es mejorar la **Reactividad**, el **Diseño de Interfaces**, la **Experiencia de Usuario (UX)**, la **Seguridad** y el **Desarrollo Modular** en aplicaciones Laravel Livewire, y que a su vez el desarrollo de proyectos sea divertida y fluida.
 
 ## 📌 Características Principales
 
-✅ Instalación automatizada de paquetes esenciales para aplicaciones Laravel SPA.  
-✅ Optimizado para **Livewire 3** y **DaisyUI 5**, mejorando el diseño y la interactividad.  
+✅ Instalación automatizada de paquetes para aplicaciones Laravel SPA Livewire.  
+✅ Optimizado para **Livewire 3** y **DaisyUI 5**, mejorando el diseño y la interactividad.
+✅ Facilidad para la **creacion y modificacion de modales** con interactividad Livewire.  
 ✅ Soporte para **Múltiples Idiomas** con Laravel Lang.  
 ✅ Estructura modular con **Laravel Modules**.  
 ✅ Comando especial para usar **Livewire dentro de Laravel Modules**. 
@@ -17,34 +18,37 @@ Su objetivo es mejorar la **Reactividad**, el **Diseño de Interfaces**, la **Ex
 
 ## ⚡ Compatibilidad y Versiones
 
-| Laravel |  W4-LaravelKit |
-|---------|----------------|
-| 12.0    |  ^1.0.0        |
+| Laravel |  W4-LaravelKit-Livewire |
+|---------|-------------------------|
+| 12.0    |         ^2.0.0          |
 
 ## 🛠 Paquetes Instalados Automáticamente
 
-Al instalar **W4-LaravelKit**, se configuran y optimizan los siguientes paquetes para el desarrollo de aplicaciones de forma inmediata:
+Al instalar **W4-LaravelKit-Livewire**, se configuran y optimizan los siguientes paquetes para el desarrollo de aplicaciones de forma inmediata:
 
-|            Paquete               |                                              Descripción                                                     |
-|----------------------------------|--------------------------------------------------------------------------------------------------------------|
-| **Laravel Livewire**             | Proporciona interactividad en tiempo real para aplicaciones SPA. *(Incluye soporte para Livewire Volt)*.     |
-| **DaisyUI**                      | MicroFramework basado en **Tailwind CSS**, mejorando el diseño de interfaces y UX.                           |
-| **Laravel Lang**                 | Agrega soporte para múltiples idiomas *(por defecto, traduce de inglés a español)*.                          |
-| **Laravel Modules**              | Facilita la **Creación y Gestión de Módulos** en proyectos Laravel.                                          |
-| **W4-LivewireModules**           | Creacion y gestion **Componentes Livewire-v3** dentro de Modulos de Laravel-Modules.                         |
-| **Livewire PowerGrid**           | Permite la creación de **tablas interactivas** con filtros, exportación y paginación.                        |
-| **Laravel-WorkFlow**             | Motor de **Flujos de Trabajo** duraderos para aplicaciones Laravel con orquestadores PHP.                    |
-| **LaravelPermission**            | Facilita la **Administracion de Roles y Permisos** de usuarios en aplicaciones Laravel.                      |
-| **Neuron-AI**                    | MicroFramework para **Creacion de Agentes Inteligentes y RAG** desarrollo de aplicaciones Laravel.           |
-| **Blade UI & Blade FontAwesome** | Añade compatibilidad con **Componentes UI** e iconos **FontAwesome** en Blade.                               |
+|            Paquete               |                                              Descripción                                                          |
+|----------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| **Laravel Livewire**             | Proporciona interactividad en tiempo real para aplicaciones SPA. *(Incluye soporte para Livewire Volt)*.          |
+| **Livewire Wire-elements-Modal** | Componente Livewire que le proporciona un modal que admite varios modales secundarios mientras mantiene el estado.|
+| **Laravel DebugBar**             | Barra de depuracion en vistas que integra PHP Debug Bar para consultas en bases de datos e informacion diversa    | 
+| **DaisyUI**                      | MicroFramework basado en **Tailwind CSS**, mejorando el diseño de interfaces y UX.                                |
+| **Laravel Lang**                 | Agrega soporte para múltiples idiomas *(por defecto, traduce de inglés a español)*.                               |
+| **Laravel Modules**              | Facilita la **Creación y Gestión de Módulos** en proyectos Laravel.                                               |
+| **W4-LivewireModules**           | Comando para creacion y gestion **Componentes Livewire-v3** dentro de Modulos de Laravel-Modules.                 |
+| **Livewire PowerGrid**           | Permite la creación de **tablas interactivas** con filtros, exportación y paginación.                             |
+| **Laravel-WorkFlow**             | Motor de **Flujos de Trabajo** duraderos para aplicaciones Laravel con orquestadores PHP.                         |
+| **LaravelPermission**            | Facilita la **Administracion de Roles y Permisos** de usuarios en aplicaciones Laravel.                           |
+| **Neuron-AI**                    | MicroFramework para **Creacion de Agentes Inteligentes y RAG** desarrollo de aplicaciones Laravel.                |
 
-Además, se incluyen **Componentes Blade y Livewirel** de forma opcional como complemento para el **Desarrollo de Interfaces y UX**.
+Además, se incluyen **Componentes Blade y Livewire** Inpirados en **DaisyUI** de forma opcional como complemento para el **Desarrollo de Interfaces y UX**.
 
 ## 📦 Versiones de los Paquetes Utilizados
 
 | Paquete                | Versión |
 |------------------------|---------|
 | Laravel Livewire       | ^3      |
+| Laravel Modal          | ^2      |
+| Laravel Debug Bar      | ^3      |
 | DaisyUI                | ^5      |
 | Laravel Lang           | ^5      |
 | Laravel Modules        | ^12     |
@@ -53,8 +57,7 @@ Además, se incluyen **Componentes Blade y Livewirel** de forma opcional como co
 | Laravel WorkFlow       | ^1      |
 | LaravelPermission      | ^6      |
 | Neuron-AI              | ^1      |
-| Blade UI               | ^0.7.0  |
-| Blade FontAwesome      | ^2.0    |
+
 
 ## 🔧 Instalación
 
