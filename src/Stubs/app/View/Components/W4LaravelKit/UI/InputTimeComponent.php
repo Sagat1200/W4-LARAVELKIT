@@ -12,9 +12,9 @@ class InputTimeComponent extends Component
     public $class;
     /**
      * Crear una nueva instancia del componente.
-     * @param string $type
-     * @param string $placeholder
-     * @param string $class
+     * @param string $type Tipo del input (por ejemplo, 'time')
+     * @param string $placeholder Placeholder del input
+     * @param string $class Clases CSS adicionales (opcional)
      */
     public function __construct($type, $placeholder, $class = '')
     {

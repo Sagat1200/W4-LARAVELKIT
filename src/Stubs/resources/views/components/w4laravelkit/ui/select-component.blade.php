@@ -44,25 +44,7 @@
     @enderror
 </div>
 
-
-
 {{-- $this->dispatch('limpiar-estadoCivil'); --}}
-
-{{-- @include('components.w4laravelkit.ui.select-component', [
-    'wire:model' => 'tipo_domicilio',
-    'model' => 'tipo_domicilio',
-    'options' => [
-        'PROPIO',
-        'RENTADO',
-    ],
-    'placeholder' => 'TIPO DE DOMICILIO'
-]) --}}
-
-{{-- <x-w4laravelkit.ui.select-component wire:model="tipo_domicilio" model="tipo_domicilio" :options="[
-    'PROPIO', 
-    'RENTADO',
-    ]"
-    placeholder="TIPO DE DOMICILIO" /> --}}
 
 {{-- @include('components.w4laravelkit.ui.select-component', [
     'wire:model' => 'tipo_domicilio',

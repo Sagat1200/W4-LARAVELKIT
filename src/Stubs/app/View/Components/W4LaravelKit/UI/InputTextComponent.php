@@ -14,6 +14,10 @@ class InputTextComponent extends Component
 
     /**
      * Crear una nueva instancia del componente.
+     * @param string $type Tipo del input (por ejemplo, 'text')
+     * @param string $placeholder Placeholder del input
+     * @param string $class Clases CSS adicionales (opcional)
+     * @param string $status Estado del input (por ejemplo, 'error', 'success', 'warning', 'info') (opcional)
      */
     public function __construct($type, $placeholder, $class = '', $status = '')
     {

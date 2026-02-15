@@ -15,11 +15,11 @@ class LinkComponent extends Component
 
     /**
      * Crear una nueva instancia del componente.
-     * @param string $route
-     * @param string $text
-     * @param string $icon
-     * @param string $class
-     * @param string $tooltip
+     * @param string $route Ruta o URL a la que apunta el enlace
+     * @param string $text Texto que se mostrará en el enlace
+     * @param string $icon Nombre de la clase del icono (opcional)
+     * @param string $class Clases CSS adicionales para el enlace (opcional)
+     * @param string $tooltip Texto del tooltip que se mostrará al pasar el mouse (opcional)
      */
     public function __construct(string $route = '', string $text = '', string $icon = '', string $class = '', string $tooltip = '')
     {

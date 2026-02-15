@@ -5,28 +5,29 @@ namespace App\View\Components\W4LaravelKit\UI;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class InputTextReadOnlyComponent extends Component
+class InputTextComponent2 extends Component
 {
     public $type;
+
     public $placeholder;
-    public $model;
-    public $value;
+
     public $class;
 
+    public $status;
+
     /**
-     * Crear nueva instacia del componente.
+     * Crear una nueva instancia del componente.
      * @param string $type Tipo del input (por ejemplo, 'text')
      * @param string $placeholder Placeholder del input
-     * @param string $model Nombre del binding `wire:model`
-     * @param string $value Valor del input
+     * @param string $class Clases CSS adicionales (opcional)
+     * @param string $status Estado del input (por ejemplo, 'error', 'success', 'warning', 'info') (opcional)
      */
-    public function __construct($type, $placeholder, $model, $value, $class='')
+    public function __construct($type, $placeholder, $class = '', $status = '')
     {
         $this->type = $type;
         $this->placeholder = $placeholder;
-        $this->model = $model;
-        $this->value = $value;
         $this->class = $class;
+        $this->status = $status;
     }
 
     /**
@@ -34,6 +35,6 @@ class InputTextReadOnlyComponent extends Component
      */
     public function render(): View|string
     {
-        return view('components.w4laravelkit.ui.inputtextreadonly-component');
+        return view('components.w4laravelkit.ui.inputtext-component2');
     }
 }

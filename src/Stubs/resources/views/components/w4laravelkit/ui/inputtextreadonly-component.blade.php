@@ -8,18 +8,13 @@
         @enderror
     </div>
 </div>
-{{-- @include('components.w4laravelkit.ui.inputtextreadonlycomponent', [
-  'type' => 'text',
-  'placeholder' => 'Nombre',
-  'model' => 'name',
-  'value' => 'Valor',
-  'class' => '',
+{{-- @include('components.w4laravelkit.ui.inputtextreadonly-component', [
+'type' => 'text',
+'placeholder' => 'Nombre',
+'model' => 'name',
+'value' => 'Valor',
+'class' => '',
 ]) --}}
 
-{{-- <x-w4laravelkit.ui.inputtextreadonlycomponent 
-    type="text" 
-    placeholder="Nombre" 
-    model="name" 
-    value="Valor" 
-    class="" 
-/> --}}
+{{-- <x-w4laravelkit.ui.inputtextreadonly-component type="text" placeholder="Nombre" model="name" value="Valor"
+    class="" /> --}}

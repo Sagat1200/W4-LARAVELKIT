@@ -10,12 +10,9 @@
         @enderror
     </div>
 </label>
-{{-- @include('components.w4laravelkit.ui.inputfilecomponent', [
-  'model' => 'file',
-  'label' => 'Archivo',
+{{-- @include('components.w4laravelkit.ui.inputfile-component', [
+'model' => 'file',
+'label' => 'Archivo',
 ]) --}}
 
-{{-- <x-w4laravelkit.ui.inputfilecomponent 
-    model="file" 
-    label="Archivo" 
-/> --}}
+{{-- <x-w4laravelkit.ui.inputfile-component model="file" label="Archivo" /> --}}

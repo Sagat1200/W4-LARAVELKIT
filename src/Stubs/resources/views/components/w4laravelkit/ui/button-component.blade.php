@@ -1,4 +1,14 @@
-<button type="{{ $type }}" class="btn btn-{{ $class }}"
+@props([
+    'type' => 'button',
+    'class' => '',
+    'tooltip' => '',
+    'tooltipPosition' => 'top',
+    'icon' => '',
+    'label' => '',
+    'badge' => '',
+])
+
+<button type="{{ $type }}" class="{{ $class }}"
     @if ($tooltip) data-tooltip="{{ $tooltip }}" data-tooltip-position="{{ $tooltipPosition }}" @endif>
     @if ($icon)
         <i class="{{ $icon }}"></i>
@@ -57,10 +67,10 @@
         transform: translateY(-50%) translateX(-0.5rem);
     }
 </style>
-{{-- @include('components.w4laravelkit.ui.buttoncomponent', ['type' => '', 'class' => '',
+{{-- @include('components.w4laravelkit.ui.button-component', ['type' => '', 'class' => '',
     'tooltip' => '', 'icon' => '', 'tooltipPosition' => '', 'label' => '', 'badge' => '']) --}}
 
-{{-- <x-w4laravelkit.ui.buttoncomponent 
+{{-- <x-w4laravelkit.ui.button-component 
     type=""
     class=""
     tooltip=""

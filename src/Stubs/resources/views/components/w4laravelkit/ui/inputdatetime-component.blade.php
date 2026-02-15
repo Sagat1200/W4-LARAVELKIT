@@ -33,7 +33,7 @@
     @enderror
 </div>
 
-{{-- @include('components.w4laravelkit.ui.inputdatetimecomponent', [
+{{-- @include('components.w4laravelkit.ui.inputdatetime-component', [
   'type' => 'text',
   'placeholder' => 'Nombre',
   'model' => 'name',
@@ -41,7 +41,7 @@
   'status' => '',
 ]) --}}
 
-{{-- <x-w4laravelkit.ui.inputdatetimecomponent 
+{{-- <x-w4laravelkit.ui.inputdatetime-component 
     type="text" 
     placeholder="Nombre" 
     model="name" 

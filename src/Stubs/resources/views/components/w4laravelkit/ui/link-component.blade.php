@@ -1,6 +1,6 @@
 <div>
-    <a href="{{ route($route) }}" class="link-hover {{ $class }}" wire:navigate
-        @if ($tooltip) data-tooltip="{{ $tooltip }}" data-tooltip-position="{{ $tooltipPosition }}" @endif>
+    <a href="{{ route($route) }}" class="link-hover {{ $class }}" wire:navigate @if ($tooltip)
+    data-tooltip="{{ $tooltip }}" data-tooltip-position="{{ $tooltipPosition }}" @endif>
         @if ($icon)
             <!-- Mostrar el icono si está presente -->
             <i class="{{ $icon }}" aria-hidden="true"></i>
@@ -34,49 +34,43 @@
     }
 
     [data-tooltip-position="top"]::before {
-        bottom: 100%;
+        inset-block-end: 100%;
         /* Cambiar de inset-block-start a bottom para mayor compatibilidad */
-        left: 50%;
+        inset-inline-start: 50%;
         transform: translateX(-50%);
-        margin-bottom: 0.5rem;
+        marmargin-block-end: 0.5rem;
         /* Añadir margen para separarlo del elemento */
     }
 
     [data-tooltip-position="right"]::before {
-        top: 50%;
-        left: 100%;
+        inset-block-start: 50%;
+        inset-inline-start: 100%;
         transform: translateY(-50%) translateX(0.5rem);
         z-index: 9999;
     }
 
     [data-tooltip-position="bottom"]::before {
-        top: 100%;
-        left: 50%;
+        inset-block-start: 100%;
+        inset-inline-start: 50%;
         transform: translateX(-50%);
-        margin-top: 0.5rem;
+        margin-block-end: 0.5rem;
         /* Añadir margen para separarlo del elemento */
     }
 
     [data-tooltip-position="left"]::before {
-        top: 50%;
-        right: 100%;
+        inset-block-start: 50%;
+        inset-inline-end: 100%;
         transform: translateY(-50%) translateX(-0.5rem);
     }
 </style>
-{{-- @include('components.w4laravelkit.ui.linkcomponent', [
-      'route' => 'RUTA',
-      'text' => 'TEXTO',
-      'icon' => 'ICONO',
-      'class' => 'btn btn-primary btn-sm mx-1',
-      'tooltip' => '',
-      'tooltipPosition' => '',
-  ]) --}}
+{{-- @include('components.w4laravelkit.ui.link-component', [
+'route' => 'RUTA',
+'text' => 'TEXTO',
+'icon' => 'ICONO',
+'class' => 'btn btn-primary btn-sm mx-1',
+'tooltip' => '',
+'tooltipPosition' => '',
+]) --}}
 
-{{-- <x-w4laravelkit.ui.linkcomponent 
-    route="RUTA" 
-    text="TEXTO" 
-    icon="ICONO" 
-    class="btn btn-primary btn-sm mx-1" 
-    tooltip="" 
-    tooltip-position="" 
-/> --}}
+{{-- <x-w4laravelkit.ui.link-component route="RUTA" text="TEXTO" icon="ICONO" class="btn btn-primary btn-sm mx-1"
+    tooltip="" tooltip-position="" /> --}}

@@ -12,6 +12,9 @@ class InputFileComponent extends Component
     public $model;
     /**
      * Crear nueva instacia del componente.
+     * @param string $type Tipo del input (por ejemplo, 'file')
+     * @param string $label Etiqueta del input
+     * @param string $model Nombre del binding `wire:model`
      */
     public function __construct($type, $label, $model)
     {

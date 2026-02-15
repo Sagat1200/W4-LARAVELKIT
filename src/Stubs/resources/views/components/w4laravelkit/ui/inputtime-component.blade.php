@@ -21,9 +21,9 @@
             }
         }
     }" x-ref="input" x-on:{{ $eventoLimpieza }}.window="clearInput()"
-        oninput="this.value = this.value.toUpperCase()" type="{{ $type }}" placeholder="{{ $placeholder }}"
+        type="{{ $type }}" placeholder="{{ $placeholder }}"
         wire:model="{{ $model }}"
-        class="w-full max-w-xs uppercase input input-bordered input-sm input-primary {{ $class }}"
+        class="w-full max-w-xs input input-bordered input-sm input-primary {{ $class }}"
         {{ $status }} @if ($autofocus) autofocus @endif>
 
     @error($model)
@@ -33,7 +33,7 @@
     @enderror
 </div>
 
-{{-- @include('components.w4laravelkit.ui.inputtimecomponent', [
+{{-- @include('components.w4laravelkit.ui.inputtime-component', [
   'type' => 'text',
   'placeholder' => 'Nombre',
   'model' => 'name',
@@ -41,7 +41,7 @@
   'status' => '',
 ]) --}}
 
-{{-- <x-w4laravelkit.ui.inputtimecomponent 
+{{-- <x-w4laravelkit.ui.inputtime-component 
     type="text" 
     placeholder="Nombre" 
     model="name" 

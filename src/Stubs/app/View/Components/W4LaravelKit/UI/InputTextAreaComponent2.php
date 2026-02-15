@@ -5,12 +5,16 @@ namespace App\View\Components\W4LaravelKit\UI;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-class InputTextAreaComponent extends Component
+class InputTextAreaComponent2 extends Component
 {
     public $placeholder;
+
     public $model;
+
     public $type;
+
     public $class;
+
     /**
      * Crear nueva instancia de Componente
      * @param mixed $placeholder Placeholder del textarea
@@ -18,7 +22,7 @@ class InputTextAreaComponent extends Component
      * @param mixed $type Tipo del textarea (por ejemplo, 'text')
      * @param mixed $class Clases CSS adicionales (opcional)
      */
-    public function __construct($placeholder, $model, $type, $class='')
+    public function __construct($placeholder, $model, $type, $class = '')
     {
         $this->placeholder = $placeholder;
         $this->model = $model;
@@ -31,6 +35,6 @@ class InputTextAreaComponent extends Component
      */
     public function render(): View|string
     {
-        return view('components.w4laravelkit.ui.inputtextarea-component');
+        return view('components.w4laravelkit.ui.inputtextarea-component2');
     }
 }
