@@ -8,7 +8,7 @@ class InstallW4LaravelKit extends Command
 {
     protected $signature = 'w4laravelkit:install';
 
-    protected $description = 'Instala Paquetes para la Configuracion Inicial de Proyectos Laravel';
+    protected $description = 'Instala Paquetes para la Configuracion Inicial de Proyectos Laravel-Livewire con W4LaravelKit';
 
     public function handle()
     {
@@ -20,14 +20,15 @@ class InstallW4LaravelKit extends Command
         shell_exec('php artisan livewire:publish --assets');
         shell_exec('php artisan livewire:stubs');
         shell_exec('php artisan livewire:layout');
-        shell_exec('composer require livewire/volt');
-        shell_exec('php artisan volt:install');
+        // Instalar Laravel Modules Livewire
+        shell_exec('composer require mhmiton/laravel-modules-livewire');
+        shell_exec('php artisan vendor:publish --tag=modules-livewire:config');
 
         // Instalar wire-elements Modal
         shell_exec('composer require wire-elements/modal');
         shell_exec('php artisan vendor:publish --tag=wire-elements-modal-views');
 
-        // Reemplazar el layout en app.blade.php
+        // Reemplazar el layout en app.blade.php de Livewire
         $this->updateAppLayout();
 
         // Instalar Tailwind CSS y DaisyUI
@@ -101,7 +102,7 @@ class InstallW4LaravelKit extends Command
 
     protected function updateAppLayout()
     {
-        $layoutPath = resource_path('views/components/layouts/app.blade.php'); // Ruta de la plantilla
+        $layoutPath = resource_path('views/layouts/app.blade.php'); // Ruta de la plantilla
 
         // Asegurar que el directorio existe
         if (!file_exists(dirname($layoutPath))) {

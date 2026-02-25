@@ -1,23 +1,12 @@
 @php
     $primary = [
-        <!-- ['route' => 'user.dashboard', 'text' => 'Panel de Inicio', 'icon' => 'fa-solid fa-house'],
-        ['route' => 'info', 'text' => 'Información', 'icon' => 'fa-solid fa-circle-info'],
-        ['route' => 'crm', 'text' => 'CRM', 'icon' => 'fa-solid fa-handshake'],
-        ['route' => 'kyc', 'text' => 'KYC Cliente', 'icon' => 'fa-solid fa-id-card'],
-        ['route' => 'controldesck', 'text' => 'Mesa de Control', 'icon' => 'fa-solid fa-tachograph-digital'],
-        ['route' => 'servidesck', 'text' => 'Mesa de Soporte', 'icon' => 'fa-solid fa-headset'],
-        ['route' => 'automatizacion', 'text' => 'Automatización', 'icon' => 'fa-solid fa-robot'],
-        ['route' => 'contabilidad', 'text' => 'Contabilidad', 'icon' => 'fa-solid fa-calculator'],
-        ['route' => 'documentos', 'text' => 'Documentos', 'icon' => 'fa-solid fa-file-lines'],
-        ['route' => 'ai', 'text' => 'NucleBank-AI', 'icon' => 'fa-solid fa-brain'],
-        ['route' => 'pld', 'text' => 'PLD', 'icon' => 'fa-solid fa-shield-halved'], -->
+        // ['route' => 'user.dashboard', 'text' => 'Panel de Inicio', 'icon' => 'fa-solid fa-house'],
+        
     ];
     $secondary = [
-        <!-- ['route' => 'blockchain', 'text' => 'Blockchain', 'icon' => 'fa-brands fa-bitcoin'],
-        ['route' => 'conectividad', 'text' => 'Conectividad', 'icon' => 'fa-solid fa-network-wired'],
-        ['route' => 'web', 'text' => 'WEB', 'icon' => 'fa-solid fa-globe'], -->
+        // ['route' => 'blockchain', 'text' => 'Blockchain', 'icon' => 'fa-brands fa-bitcoin'],
     ];
-    <!-- $settings = [['route' => 'configuracion', 'text' => 'Configuración', 'icon' => 'fa-solid fa-gears']]; -->
+    $settings = [['route' => 'configuracion', 'text' => 'Configuración', 'icon' => 'fa-solid fa-gears']];
 
     // Tono activo configurable: 'primary', 'secondary' o 'accent'
     $activeTone = $activeTone ?? 'accent';

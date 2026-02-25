@@ -5,7 +5,6 @@ namespace W4LaravelKit\Providers;
 use Livewire\Livewire;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use W4LaravelKit\Commands\W4LivewireModules;
 use W4Laravelkit\Commands\InstallW4LaravelKit;
 use App\Livewire\W4LaravelKit\PowerGrid\Fonts\PowerGridFont1;
 use App\Livewire\W4LaravelKit\PowerGrid\RefreshTable\TableRefresherComponent;
@@ -45,7 +44,6 @@ class W4LaravelKitServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 InstallW4LaravelKit::class,
-                W4LivewireModules::class
             ]);
 
             // 📌 Publicar Clases y Vistas de componentes en el Proyecto Laravel
