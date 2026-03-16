@@ -41,7 +41,7 @@ class InstallW4LaravelKit extends Command
         shell_exec('composer require power-components/livewire-powergrid');
         shell_exec('php artisan vendor:publish --tag=livewire-powergrid-config');
         shell_exec('php artisan vendor:publish --tag=livewire-powergrid-lang');
-        shell_exec('composer require openspout/openspout:^4.0');
+        shell_exec('composer require openspout/openspout');
         shell_exec('php artisan powergrid:update');
         shell_exec('npm i flatpickr --save');
         shell_exec('npm i slim-select');
@@ -67,8 +67,9 @@ class InstallW4LaravelKit extends Command
         shell_exec('composer require nwidart/laravel-modules');
         shell_exec('php artisan vendor:publish --provider="Nwidart\Modules\LaravelModulesServiceProvider"');
 
-        // Instalar Neuron AI
-        shell_exec('composer require neuron-core/neuron-ai');
+        // Instalar Laravel AI
+        shell_exec('composer require laravel/ai');
+        shell_exec('php artisan vendor:publish --provider="Laravel\Ai\AiServiceProvider"');
 
         // Instalar Laravel WorkFlow
         shell_exec('composer require laravel-workflow/laravel-workflow');
